@@ -1,0 +1,18 @@
+{% extends 'base.html' %}<!-- this just example if you wan't extending from base.html -->
+{% block content %}<!-- blocking content from base.html -->
+<div class="panel">
+    <div class="panel-body">
+    {% if form.errors %}
+        <p class="alert alert-danger">
+           Upps, Username and Password didn't match!
+        </p>
+    {% endif %}
+
+    <form action="." method="POST">{% csrf_token %}
+        {{ form.as_p }}
+      <button type="submit" class="btn btn-success"></button>
+      <input type="hidden" name="next" value="/" />
+    </form>
+    </div>
+</div>
+{% endblock %}
